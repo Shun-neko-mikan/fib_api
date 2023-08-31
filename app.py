@@ -6,10 +6,17 @@ app = Flask(__name__)
 def fib():
     try:
         n = int(request.args.get('n'))
+        if n > 20000:
+            message = jsonify({'status': 413, 'message': 'ValueError: n must be less than 20000.'})
+            return message, 413
+        elif n < 1:
+            message = jsonify({'status': 400, 'message': 'ValueError: n must be positive.'})
+            return message, 400
         return jsonify({'result': fibonacci(n)})
-    except Exception as e:
-        message = jsonify({'status': 400, 'message': 'Bad Request.'})
+    except ValueError:
+        message = jsonify({'status': 400, 'message': 'ValueError: n must be an integer.'})
         return message, 400
+    # 値が多きすぎるときはエラーを返す
     
 
 
