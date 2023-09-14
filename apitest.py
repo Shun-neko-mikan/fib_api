@@ -17,7 +17,7 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(data['result'], 218922995834555169026)
     
     def test_bad_request_1(self):
-        response = self.app.get('/fib?n=30000')
+        response = self.app.get('/fib?n=20001')
         self.assertEqual(response.status_code, 413)
     
     def test_bad_request_2(self):
