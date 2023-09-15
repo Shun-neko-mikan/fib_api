@@ -16,7 +16,6 @@ def fib():
     except ValueError:
         message = jsonify({'status': 400, 'message': 'ValueError: n must be a natural number.'})
         return message, 400
-    # 値が多きすぎるときはエラーを返す
     
 
 
