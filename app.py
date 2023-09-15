@@ -14,7 +14,7 @@ def fib():
             return message, 400
         return jsonify({'result': fibonacci(n)})
     except ValueError:
-        message = jsonify({'status': 400, 'message': 'ValueError: n must be an integer.'})
+        message = jsonify({'status': 400, 'message': 'ValueError: n must be a natural number.'})
         return message, 400
     # 値が多きすぎるときはエラーを返す
     
